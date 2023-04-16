@@ -1,9 +1,78 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/components/styles/Home.module.css'
+import Head from "next/head";
+import styled from "styled-components";
+import { SettingsIcon } from "../assets/icons/SettingsIcon";
+import { MicIcon } from "../assets/icons/MicIcon";
+import { AfordinIcon } from "../assets/icons/AfordinIcon";
 
-const inter = Inter({ subsets: ['latin'] })
+export const Section = styled.section`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 4rem;
+  background: #0c0d0d;
+  padding-top: 12rem;
+  height: 100vh;
+  width: 100%;
+`;
+
+export const SlimeImage = styled.img`
+  z-index: 10;
+  height: 5rem;
+  width: 5rem;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+`;
+
+export const Main = styled.main`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  &:hover ${SlimeImage} {
+    transform: translateY(5rem);
+  }
+`;
+
+export const Navbar = styled.nav`
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  color: #f3f3f3;
+`;
+
+export const Title = styled.h1`
+  position: relative;
+  z-index: 50;
+  font-size: 6rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #00ff75;
+`;
+
+export const SlimeContainer = styled.div`
+  position: absolute;
+  right: 0.5rem;
+  top: -2rem;
+  overflow: hidden;
+`;
+
+export const MicContainer = styled.button`
+  width: fit-content;
+  border-radius: 1.5rem;
+  padding: 1.25rem;
+  background: #00ff75;
+  box-shadow: 0 4px 0 #00ff7580;
+  &:hover {
+    transform: translateY(4px);
+    box-shadow: none;
+  }
+  transition: all 100ms ease-in-out;
+`;
 
 export default function Home() {
   return (
@@ -14,110 +83,36 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>src/pages/index.tsx</code>
+      <Section>
+        <Navbar>
+          <SettingsIcon />
+        </Navbar>
+        <Main>
+          <SlimeContainer>
+            <SlimeImage src="https://img.itch.zone/aW1nLzQ2NjgzMzcuZ2lm/original/h1fYCw.gif" />
+          </SlimeContainer>
+          <Title>Clonaroo</Title>
+          <p className="text-[#F3F3F3]">
+            Speak your mind and be heard - Share your voice with the world!
           </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
+        </Main>
+        <section className="relative flex flex-col items-center justify-center gap-4 text-[#0C0D0D]">
+          <MicContainer>
+            <MicIcon />
+          </MicContainer>
+          <img
+            src="https://formcarry.com/pointer_light.gif"
+            className="absolute bottom-10 right-5 h-10 w-10 rotate-90"
           />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+          <small className="rounded-xl bg-[#FFFFFF11] px-5 py-2 text-[#CCC]">
+            Presiona el botón para empezar a grabar
+          </small>
+        </section>
+        <footer className="flex flex-col items-center justify-end w-full h-full text-[#F3F3F3] pb-5">
+          <h3>Made by</h3>
+          <AfordinIcon gradient={true} className="w-48 h-12 text-white" />
+        </footer>
+      </Section>
     </>
-  )
+  );
 }
