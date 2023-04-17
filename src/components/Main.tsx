@@ -63,13 +63,10 @@ function Main() {
     }
   };
 
-  useEffect(() => {
-    getMicrophonePermission();
-  }, []);
-
   const startRecording = async (): Promise<void> => {
-    setVoice("recording");
+    getMicrophonePermission();
     if (!stream) return;
+    setVoice("recording");
     //create new Media recorder instance using the stream
     const media = new MediaRecorder(stream, { mimeType: "audio/webm" });
     //set the MediaRecorder instance to the mediaRecorder ref
@@ -88,6 +85,7 @@ function Main() {
   const stopRecording = (): void => {
     setVoice("recorded");
     if (!mediaRecorder.current) return;
+    if (mediaRecorder.current.state === "inactive") return; // Comprobación adicional
     //stops the recording instance
     mediaRecorder.current.stop();
     mediaRecorder.current.onstop = () => {
