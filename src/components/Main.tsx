@@ -38,10 +38,8 @@ export const StopContainer = styled.button`
   transition: all 100ms ease-in-out;
 `;
 
-const mimeType = "audio/webm";
-
 function Main() {
-  const [voice, setVoice] = useState<string>("");
+  const [voice, setVoice] = useState<string>("record");
   const [audio, setAudio] = useState<string>("");
   const [audioChunks, setAudioChunks] = useState<Blob[]>([]);
   const [permission, setPermission] = useState<boolean>(false);
@@ -73,7 +71,7 @@ function Main() {
     setVoice("recording");
     if (!stream) return;
     //create new Media recorder instance using the stream
-    const media = new MediaRecorder(stream, { mimeType });
+    const media = new MediaRecorder(stream, { mimeType: "audio/webm" });
     //set the MediaRecorder instance to the mediaRecorder ref
     mediaRecorder.current = media;
     //invokes the start method to start the recording process
@@ -94,7 +92,7 @@ function Main() {
     mediaRecorder.current.stop();
     mediaRecorder.current.onstop = () => {
       //creates a blob file from the audiochunks data
-      const audioBlob = new Blob(audioChunks, { type: mimeType });
+      const audioBlob = new Blob(audioChunks, { type: "audio/webm" });
       //creates a playable URL from the blob file.
       const audioUrl = URL.createObjectURL(audioBlob);
       setAudio(audioUrl);
