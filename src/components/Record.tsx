@@ -13,7 +13,7 @@ function Record({ voice, onClick }: RecordProps) {
           </MicContainer>
           <Image
             src="/arrow.gif"
-            className="absolute bottom-10 right-5 h-10 w-10 rotate-90"
+            className="absolute bottom-10 right-5 h-10 w-auto rotate-90"
             alt="arrow"
             width={40}
             height={40}
