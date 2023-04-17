@@ -9,7 +9,7 @@ function Recording({ voice, onClick }: RecordProps) {
   return (
     <>
       {voice === "recording" && (
-        <section className="relative flex items-center justify-center gap-4 text-[#0C0D0D]">
+        <section className="relative flex items-center justify-center gap-12 text-[#0C0D0D]">
           <MicContainer
             onClick={() => setRecording((prevState: boolean) => !prevState)}
           >
@@ -29,7 +29,7 @@ function Recording({ voice, onClick }: RecordProps) {
               <StopIcon />
             </div>
           </StopContainer>
-          <p className="absolute -bottom-12 text-[#F3F3F3]">00:08</p>
+          <small className="absolute -top-4 text-[#999]">00:08</small>
         </section>
       )}
     </>
