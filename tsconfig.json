@@ -18,6 +18,6 @@
       "@/components/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/Recorder.jsx"],
   "exclude": ["node_modules"]
 }

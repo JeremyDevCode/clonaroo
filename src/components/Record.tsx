@@ -7,7 +7,10 @@ function Record({ voice, onClick }: RecordProps) {
   return (
     <>
       {voice === "record" && (
-        <section className="relative flex flex-col items-center justify-center gap-4 text-[#0C0D0D]">
+        <section
+          className="relative flex flex-col items-center justify-center gap-4 text-[#0C0D0D]"
+          id="audio"
+        >
           <MicContainer title="Record audio" onClick={onClick}>
             <MicIcon />
           </MicContainer>

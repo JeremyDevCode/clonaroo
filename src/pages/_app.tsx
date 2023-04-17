@@ -29,7 +29,7 @@ const satoshi = localFont({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <main className={satoshi.className}>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </main>
   );
 }
