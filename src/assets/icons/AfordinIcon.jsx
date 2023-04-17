@@ -69,9 +69,9 @@ function AfordinIcon({ gradient = true, className }) {
           y2="121.945"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#CC95C0" />
-          <stop offset="0.5" stop-color="#DBD4B4" />
-          <stop offset="1" stop-color="#7AA1D2" />
+          <stop stopColor="#CC95C0" />
+          <stop offset="0.5" stopColor="#DBD4B4" />
+          <stop offset="1" stopColor="#7AA1D2" />
         </linearGradient>
         <linearGradient
           id="~"
@@ -81,9 +81,9 @@ function AfordinIcon({ gradient = true, className }) {
           y2="121.945"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#CC95C0" />
-          <stop offset="0.5" stop-color="#DBD4B4" />
-          <stop offset="1" stop-color="#7AA1D2" />
+          <stop stopColor="#CC95C0" />
+          <stop offset="0.5" stopColor="#DBD4B4" />
+          <stop offset="1" stopColor="#7AA1D2" />
         </linearGradient>
         <linearGradient
           id="/"
@@ -93,9 +93,9 @@ function AfordinIcon({ gradient = true, className }) {
           y2="121.945"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#CC95C0" />
-          <stop offset="0.5" stop-color="#DBD4B4" />
-          <stop offset="1" stop-color="#7AA1D2" />
+          <stop stopColor="#CC95C0" />
+          <stop offset="0.5" stopColor="#DBD4B4" />
+          <stop offset="1" stopColor="#7AA1D2" />
         </linearGradient>
         <linearGradient
           id="F"
@@ -105,9 +105,9 @@ function AfordinIcon({ gradient = true, className }) {
           y2="121.945"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#CC95C0" />
-          <stop offset="0.5" stop-color="#DBD4B4" />
-          <stop offset="1" stop-color="#7AA1D2" />
+          <stop stopColor="#CC95C0" />
+          <stop offset="0.5" stopColor="#DBD4B4" />
+          <stop offset="1" stopColor="#7AA1D2" />
         </linearGradient>
         <linearGradient
           id="O"
@@ -117,9 +117,9 @@ function AfordinIcon({ gradient = true, className }) {
           y2="121.945"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#CC95C0" />
-          <stop offset="0.5" stop-color="#DBD4B4" />
-          <stop offset="1" stop-color="#7AA1D2" />
+          <stop stopColor="#CC95C0" />
+          <stop offset="0.5" stopColor="#DBD4B4" />
+          <stop offset="1" stopColor="#7AA1D2" />
         </linearGradient>
         <linearGradient
           id="Star"
@@ -129,9 +129,9 @@ function AfordinIcon({ gradient = true, className }) {
           y2="121.945"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#CC95C0" />
-          <stop offset="0.5" stop-color="#DBD4B4" />
-          <stop offset="1" stop-color="#7AA1D2" />
+          <stop stopColor="#CC95C0" />
+          <stop offset="0.5" stopColor="#DBD4B4" />
+          <stop offset="1" stopColor="#7AA1D2" />
         </linearGradient>
         <linearGradient
           id="R"
@@ -149,9 +149,9 @@ function AfordinIcon({ gradient = true, className }) {
             y2="121.945"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#CC95C0" />
-            <stop offset="0.5" stop-color="#DBD4B4" />
-            <stop offset="1" stop-color="#7AA1D2" />
+            <stop stopColor="#CC95C0" />
+            <stop offset="0.5" stopColor="#DBD4B4" />
+            <stop offset="1" stopColor="#7AA1D2" />
           </linearGradient>
           <linearGradient
             id="I"
@@ -161,13 +161,13 @@ function AfordinIcon({ gradient = true, className }) {
             y2="121.945"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#CC95C0" />
-            <stop offset="0.5" stop-color="#DBD4B4" />
-            <stop offset="1" stop-color="#7AA1D2" />
+            <stop stopColor="#CC95C0" />
+            <stop offset="0.5" stopColor="#DBD4B4" />
+            <stop offset="1" stopColor="#7AA1D2" />
           </linearGradient>
-          <stop stop-color="#CC95C0" />
-          <stop offset="0.5" stop-color="#DBD4B4" />
-          <stop offset="1" stop-color="#7AA1D2" />
+          <stop stopColor="#CC95C0" />
+          <stop offset="0.5" stopColor="#DBD4B4" />
+          <stop offset="1" stopColor="#7AA1D2" />
         </linearGradient>
         <linearGradient
           id="N"
@@ -177,9 +177,9 @@ function AfordinIcon({ gradient = true, className }) {
           y2="121.945"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#CC95C0" />
-          <stop offset="0.5" stop-color="#DBD4B4" />
-          <stop offset="1" stop-color="#7AA1D2" />
+          <stop stopColor="#CC95C0" />
+          <stop offset="0.5" stopColor="#DBD4B4" />
+          <stop offset="1" stopColor="#7AA1D2" />
         </linearGradient>
       </defs>
     </svg>

@@ -2,7 +2,13 @@ import Head from "next/head";
 import styled from "styled-components";
 import { SettingsIcon } from "../assets/icons/SettingsIcon";
 import { MicIcon } from "../assets/icons/MicIcon";
+import { PauseIcon } from "../assets/icons/PauseIcon";
+import { PlayIcon } from "../assets/icons/PlayIcon";
+import { StopIcon } from "../assets/icons/StopIcon";
+import { ReloadIcon } from "../assets/icons/ReloadIcon";
+import { CircleIcon } from "../assets/icons/CircleIcon";
 import { AfordinIcon } from "../assets/icons/AfordinIcon";
+import { useEffect, useState } from "react";
 
 export const Section = styled.section`
   position: relative;
@@ -11,10 +17,17 @@ export const Section = styled.section`
   align-items: center;
   justify-content: start;
   gap: 4rem;
-  background: #0c0d0d;
+  background: radial-gradient(
+    131.05% 131.05% at 51.87% -48.54%,
+    #161e33 0%,
+    #000000 100%
+  );
   padding-top: 12rem;
   height: 100vh;
   width: 100%;
+  @media (max-width: 640px) {
+    padding-top: 8rem;
+  }
 `;
 
 export const SlimeImage = styled.img`
@@ -24,10 +37,13 @@ export const SlimeImage = styled.img`
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+  @media (max-width: 640px) {
+    height: 4rem;
+    width: 4rem;
+  }
 `;
 
 export const Main = styled.main`
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,6 +51,9 @@ export const Main = styled.main`
   gap: 1rem;
   &:hover ${SlimeImage} {
     transform: translateY(5rem);
+  }
+  @media (max-width: 640px) {
+    width: 90%;
   }
 `;
 
@@ -49,19 +68,29 @@ export const Title = styled.h1`
   position: relative;
   z-index: 50;
   font-size: 6rem;
-  font-weight: 800;
+  font-weight: 900;
   line-height: 1;
   color: #00ff75;
+  @media (max-width: 640px) {
+    font-size: 4.5rem;
+  }
 `;
 
 export const SlimeContainer = styled.div`
   position: absolute;
-  right: 0.5rem;
+  right: -0.5rem;
   top: -2rem;
   overflow: hidden;
+  @media (max-width: 640px) {
+    top: -1.6rem;
+  }
 `;
 
 export const MicContainer = styled.button`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: fit-content;
   border-radius: 1.5rem;
   padding: 1.25rem;
@@ -73,8 +102,33 @@ export const MicContainer = styled.button`
   }
   transition: all 100ms ease-in-out;
 `;
+export const StopContainer = styled.button`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  border-radius: 1.5rem;
+  padding: 1.25rem;
+  background: #ed2939;
+  box-shadow: 0 4px 0 #ed293980;
+  &:hover {
+    transform: translateY(4px);
+    box-shadow: none;
+  }
+  transition: all 100ms ease-in-out;
+`;
 
 export default function Home() {
+  const [mount, setMount] = useState(false);
+  const [voice, setVoice] = useState("record");
+  const [recording, setRecording] = useState(true);
+
+  useEffect(() => {
+    setMount(true);
+  }, []);
+  if (!mount) return null;
+
   return (
     <>
       <Head>
@@ -88,26 +142,86 @@ export default function Home() {
           <SettingsIcon />
         </Navbar>
         <Main>
-          <SlimeContainer>
-            <SlimeImage src="https://img.itch.zone/aW1nLzQ2NjgzMzcuZ2lm/original/h1fYCw.gif" />
-          </SlimeContainer>
-          <Title>Clonaroo</Title>
-          <p className="text-[#F3F3F3]">
+          <div className="relative">
+            <Title>Clonaroo</Title>
+            <SlimeContainer>
+              <SlimeImage src="https://img.itch.zone/aW1nLzQ2NjgzMzcuZ2lm/original/h1fYCw.gif" />
+            </SlimeContainer>
+          </div>
+          <p className="text-[#F3F3F3] text-center">
             Speak your mind and be heard - Share your voice with the world!
           </p>
         </Main>
-        <section className="relative flex flex-col items-center justify-center gap-4 text-[#0C0D0D]">
-          <MicContainer>
-            <MicIcon />
-          </MicContainer>
-          <img
-            src="https://formcarry.com/pointer_light.gif"
-            className="absolute bottom-10 right-5 h-10 w-10 rotate-90"
-          />
-          <small className="rounded-xl bg-[#FFFFFF11] px-5 py-2 text-[#CCC]">
-            Presiona el botón para empezar a grabar
-          </small>
-        </section>
+        {voice === "record" && (
+          <section className="relative flex flex-col items-center justify-center gap-4 text-[#0C0D0D]">
+            <MicContainer onClick={() => setVoice("recording")}>
+              <MicIcon />
+            </MicContainer>
+            <img
+              src="https://formcarry.com/pointer_light.gif"
+              className="absolute bottom-10 right-5 h-10 w-10 rotate-90"
+            />
+            <small className="rounded-xl bg-[#FFFFFF11] px-5 py-2 text-[#CCC]">
+              Presiona el botón para empezar a grabar
+            </small>
+          </section>
+        )}
+        {voice === "recording" && (
+          <section className="relative flex items-center justify-center gap-4 text-[#0C0D0D]">
+            <MicContainer
+              onClick={() => setRecording((prevState: boolean) => !prevState)}
+            >
+              <div className="flex items-center">
+                {recording && <PauseIcon />}
+                {!recording && <PlayIcon />}
+              </div>
+            </MicContainer>
+            <div>
+              <img
+                className="w-20 h-20"
+                src="https://thumbs.dreamstime.com/b/icono-de-vector-onda-audio-sonido-arte-l%C3%ADnea-ilustraci%C3%B3n-del-205764485.jpg"
+              />
+            </div>
+            <StopContainer onClick={() => setVoice("recorded")}>
+              <div className="flex items-center">
+                <StopIcon />
+              </div>
+            </StopContainer>
+            <p className="absolute -bottom-12 text-[#F3F3F3]">00:08</p>
+          </section>
+        )}
+        {voice === "recorded" && (
+          <section className="flex flex-col gap-5">
+            <section className="relative flex items-center justify-center gap-4 text-[#0C0D0D]">
+              <StopContainer onClick={() => setVoice("recording")}>
+                <ReloadIcon />
+              </StopContainer>
+              <MicContainer
+                onClick={() => setRecording((prevState: boolean) => !prevState)}
+              >
+                <div className="flex items-center">
+                  {recording && <PauseIcon />}
+                  {!recording && <PlayIcon />}
+                </div>
+              </MicContainer>
+              <div className="relative w-48 h-1 bg-[#FFFFFF11]">
+                <p className="absolute left-0 -bottom-10 text-[#F3F3F3]">
+                  00:00
+                </p>
+                <p className="absolute right-0 -bottom-10 text-[#F3F3F3]">
+                  00:08
+                </p>
+                <div className="relative flex items-center bg-[#DDDDDD] w-10 h-full">
+                  <CircleIcon className="absolute -right-2 fill-[#F3F3F3]" />
+                </div>
+              </div>
+            </section>
+            <article className="text-[#F3F3f3] bg-[#FFFFFF11] flex gap-5 p-5">
+              <h2>Share</h2>
+              <p>https://clonaroo</p>
+            </article>
+          </section>
+        )}
         <footer className="flex flex-col items-center justify-end w-full h-full text-[#F3F3F3] pb-5">
           <h3>Made by</h3>
           <AfordinIcon gradient={true} className="w-48 h-12 text-white" />
