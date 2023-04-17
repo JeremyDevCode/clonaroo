@@ -56,7 +56,7 @@ function Header() {
       <div className="relative">
         <Title>Clonaroo</Title>
         <SlimeContainer>
-          <SlimeImage src="./slime.gif" />
+          <SlimeImage src="./slime.gif" alt="slime" />
         </SlimeContainer>
       </div>
       <p className="text-[#F3F3F3] text-center">

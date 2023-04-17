@@ -12,10 +12,11 @@ function Recorded({ voice, onClick }: RecordProps) {
       {voice === "recorded" && (
         <section className="flex flex-col gap-5">
           <section className="relative flex items-center justify-center gap-4 text-[#0C0D0D]">
-            <StopContainer onClick={onClick}>
+            <StopContainer title="Record other audio" onClick={onClick}>
               <ReloadIcon />
             </StopContainer>
             <MicContainer
+              title="Play/pause audio"
               onClick={() => setRecording((prevState: boolean) => !prevState)}
             >
               <div className="flex items-center">

@@ -22,6 +22,7 @@ function Recording({ voice, onClick }: RecordProps) {
             <img
               className="w-20 h-20 invert"
               src="https://cdn-icons-png.flaticon.com/512/1792/1792737.png"
+              alt="temporal"
             />
           </div>
           <StopContainer onClick={onClick}>
