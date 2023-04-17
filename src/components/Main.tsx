@@ -73,7 +73,7 @@ function Main() {
     setVoice("recording");
     if (!stream) return;
     //create new Media recorder instance using the stream
-    const media = new MediaRecorder(stream, { type: mimeType });
+    const media = new MediaRecorder(stream, { mimeType });
     //set the MediaRecorder instance to the mediaRecorder ref
     mediaRecorder.current = media;
     //invokes the start method to start the recording process
